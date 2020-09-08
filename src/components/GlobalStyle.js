@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
     body{
         font-family:Montserrat, sans-serif;
     }
+    a{
+        text-decoration:none;
+    }
     button,
     input,
     textarea{

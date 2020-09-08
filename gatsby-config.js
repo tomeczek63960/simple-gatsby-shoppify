@@ -40,7 +40,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Montserrat\:400,700`
+          `Montserrat\:400,700`,
+          "Poppins\:400,700"
         ],
         display: 'swap'
       }

@@ -93,6 +93,7 @@ const PageHero = () => {
             <CollectionsWrapper>
                 {edges.map(v => {
                     const {title, description, image, id, handle} = v.node;
+                    if(title === 'polecane') return;
                     return(
                         <Collection key={id} master={ title === "Wyprzedaż"} >
                         
