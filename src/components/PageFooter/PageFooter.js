@@ -4,8 +4,7 @@ import Logo from '../PageBar/Logo';
 import Icon from '../common/Icon';
 
 const StyledFooter = styled.footer`
-    margin-left:-30px;
-    margin-right:-30px;
+    margin:30px -30px 0;
     padding:30px;
     width:calc(100% + 60px);
     color:white;
