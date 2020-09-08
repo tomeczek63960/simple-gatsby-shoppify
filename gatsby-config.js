@@ -25,7 +25,15 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/logo.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        shopName: `RealStyleClothes`,
+        accessToken: `d12b6112e7f38b7556a1e5eba6a78ec5`,
+        apiVersion: '2020-07',
       },
     },
   ],
