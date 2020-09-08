@@ -1,6 +1,7 @@
 import React from "react"
 import styled from 'styled-components';
 import PageBar from './PageBar/PageBar';
+import GlobalStyle from './GlobalStyle';
 
 const StyledLayout = styled.div`
   max-width:1300px;
@@ -12,6 +13,8 @@ const StyledLayout = styled.div`
 const Layout = ({ children }) => {
 
   return (
+    <>
+    <GlobalStyle/>
     <StyledLayout>
         <PageBar />
         
@@ -20,6 +23,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
     </StyledLayout>
+    </>
   )
 }
 

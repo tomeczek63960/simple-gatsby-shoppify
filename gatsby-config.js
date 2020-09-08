@@ -36,5 +36,14 @@ module.exports = {
         apiVersion: '2020-07',
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Montserrat\:400,700`
+        ],
+        display: 'swap'
+      }
+    }
   ],
 }
