@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family:Montserrat, sans-serif;
+        background:#f5f5f5;
     }
     a{
         text-decoration:none;

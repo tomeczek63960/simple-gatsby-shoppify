@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from '../PageBar/Logo';
-import Icon from '../common/Icon';
+import Icon from '../common/Icon/Icon';
 
 const StyledFooter = styled.footer`
     margin:30px -30px 0;

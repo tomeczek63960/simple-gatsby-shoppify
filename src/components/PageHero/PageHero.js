@@ -21,9 +21,14 @@ const StyledImage = styled(Image)`
 const CollectionsWrapper = styled.article`
   display:flex;
   flex-wrap:wrap;
+  
+  @media screen and (min-width:600px){
+    margin-top:50px;
+  }
 `;
 const Collection = styled.section`
   min-width:${props => props.master ? "100%!important" : "100%"};
+  order:${ props => props.master ? -1 : 0};
   height:300px;
   flex-grow:1;
   position:relative;
@@ -95,7 +100,7 @@ const PageHero = () => {
                     const {title, description, image, id, handle} = v.node;
                     if(title === 'polecane') return;
                     return(
-                        <Collection key={id} master={ title === "Wyprzedaż"} >
+                        <Collection key={id} master={ title === "wyprzedaż"} >
                         
                         <CollectionContent to={handle}>
                             <h3>{title}</h3>

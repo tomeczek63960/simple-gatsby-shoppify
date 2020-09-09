@@ -16,8 +16,8 @@ const Layout = ({ children }) => {
   return (
     <>
     <GlobalStyle/>
+    <PageBar />
     <StyledLayout>
-        <PageBar />
         
         <main>{children}</main>
         <PageFooter />

@@ -12,6 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node {
                     handle
                     title
+                    shopifyId
                 }
             }
         }
@@ -24,7 +25,8 @@ exports.createPages = async ({ graphql, actions }) => {
         component: CollectionPageTemplate,
         context: {
             title:edge.node.title,
-            handle:edge.node.handle
+            handle:edge.node.handle,
+            shopifyId: edge.node.shopifyId
         },
       })
     })
