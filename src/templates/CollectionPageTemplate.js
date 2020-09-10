@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import Product from '../components/common/products/Product';
 import ProductsContainer from '../components/common/products/ProductsContainer';
 import Heading from '../components/common/Heading';
+import Aside from '../components/common/aside/Aside';
 
 const ShopContainer = styled.article`
     margin-top:30px;
@@ -17,23 +18,6 @@ const ShopContainer = styled.article`
     }
     @media screen and (min-width:900px){
         flex-wrap:nowrap;
-    }
-`;
-
-const SearchBar = styled.aside`
-    margin:20px -30px 0;
-    width:calc(100% + 60px);
-    background:white;
-    height:400px;
-
-    @media screen and (min-width:600px){
-        margin:20px 0 0;
-        width:100%;
-    }
-    @media screen and (min-width:900px){
-        margin:0 40px 0 0;
-        width:26%;
-        flex-shrink:0;
     }
 `;
 
@@ -56,13 +40,14 @@ const ShopContent = styled.section`
     }
 `;
 
-const CollectionPageTemplate = ({ data, pageContext }) => {
-
+const CollectionPageTemplate = (props) => {
+    const { data, pageContext } = props;
+   
     return  ( 
         <Layout>
             <ShopContainer>
-                <SearchBar> for search</SearchBar>
-
+                
+                <Aside navigate = { props.navigate } />
                 <ShopContent>
                     <Heading>{pageContext.title}</Heading>
                     <ProductsContainer>

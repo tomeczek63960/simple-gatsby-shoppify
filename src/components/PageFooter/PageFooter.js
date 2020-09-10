@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../PageBar/Logo';
 import Icon from '../common/Icon/Icon';
+import { Link } from 'gatsby';
 
 const StyledFooter = styled.footer`
     margin:30px -30px 0;
@@ -82,15 +83,15 @@ const PageFooter = () => {
                 </FooterRowContent>
                 <FooterRowContent>
                     <FooterRowHeading>Quick links</FooterRowHeading>
-                    <a href="#">Know more about us</a>
-                    <a href="#">Visit store</a>
-                    <a href="#">Let's connect</a>
+                    <Link to="/">Know more about us</Link>
+                    <Link to="/">Visit store</Link>
+                    <Link to="/">Let's connect</Link>
                 </FooterRowContent>
                 <FooterRowContent>
                     <FooterRowHeading>Important Links</FooterRowHeading>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Shipping Details</a>
-                    <a href="#">Terms & conditions</a>
+                    <Link to="/">Privacy Policy</Link>
+                    <Link to="/">Shipping Details</Link>
+                    <Link to="/">Terms & conditions</Link>
                 </FooterRowContent>
             </FlexContainer>
         </StyledFooter>

@@ -23,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
         -webkit-appearance: none; 
         margin: 0; 
     }
+
+    input[type=checkbox]{
+        display:none;
+    }
 `;
 
 export default GlobalStyle;
