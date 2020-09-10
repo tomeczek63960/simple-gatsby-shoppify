@@ -18,6 +18,11 @@ const GlobalStyle = createGlobalStyle`
     textarea{
         outline:none
     }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
 `;
 
 export default GlobalStyle;

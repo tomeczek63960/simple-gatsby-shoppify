@@ -6,8 +6,8 @@ import Image from 'gatsby-image';
 const StyledProduct = styled(Link)`
   margin-left:auto;
   margin-right:auto;
-  max-width:250px;
-  flex-basis:150px;
+  max-width:200px;
+  flex-basis:125px;
   flex-grow:1;
   display:block;
 
@@ -19,6 +19,10 @@ const StyledProduct = styled(Link)`
     color:#ff5151;
     font-size:23px;
     font-weight:600;
+  }
+
+  @media screen and (min-width:600px){
+    flex-basis:140px;
   }
 `;
 

@@ -57,6 +57,7 @@ const ShopContent = styled.section`
 `;
 
 const CollectionPageTemplate = ({ data, pageContext }) => {
+
     return  ( 
         <Layout>
             <ShopContainer>
@@ -67,13 +68,14 @@ const CollectionPageTemplate = ({ data, pageContext }) => {
                     <ProductsContainer>
 
                         { data.shopifyCollection.products.map( product =>{
+                            const priceNode = product.variants[0].presentmentPrices.edges[0].node;
     
                             return(
                                 <Product 
                                     handle = { product.handle }                              
                                     title = { product.title }
                                     image = { product.images[0].localFile.childImageSharp.fluid }
-                                    price = { product.variants[0].price }
+                                    price = { priceNode.compareAtPrice ? priceNode.compareAtPrice.amount : priceNode.price.amount }
                                 />
                             );
 
@@ -95,7 +97,20 @@ query fetchCollectionProducts($shopifyId: String!) {
             shopifyId
             title
             variants {
-                price
+                presentmentPrices {
+                    edges {
+                      node {
+                        price {
+                          amount
+                          currencyCode
+                        }
+                        compareAtPrice {
+                          amount
+                          currencyCode
+                        }
+                      }
+                    }
+                  }
             }
             images {
                 localFile {

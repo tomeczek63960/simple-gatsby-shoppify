@@ -14,7 +14,20 @@ const FeaturedProducts = () => {
             title
             description
             variants {
-              price
+              presentmentPrices {
+                edges {
+                  node {
+                    price {
+                      amount
+                      currencyCode
+                    }
+                    compareAtPrice {
+                      amount
+                      currencyCode
+                    }
+                  }
+                }
+              }
             }
             images {
               localFile {
@@ -37,13 +50,14 @@ const FeaturedProducts = () => {
             <ProductsContainer>
                 { featuredProducts.map(product => {
                 const {title, handle, images, variants} = product;
+                const priceNode = variants[0].presentmentPrices.edges[0].node;
 
                 return(
                   <Product
                     handle = { handle }
                     title = { title }
                     image = { images[0].localFile.childImageSharp.fluid }
-                    price = { variants[0].price }
+                    price = { priceNode.compareAtPrice ? priceNode.compareAtPrice.amount : priceNode.price.amount }
                   />
                 );
 

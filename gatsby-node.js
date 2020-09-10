@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     }
   `);
-  
+
   collectionQueryResult.data.allShopifyCollection.edges.forEach(edge => {
       createPage({
         path: `${edge.node.handle}`,
@@ -38,6 +38,8 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
             node {
                 handle
+                shopifyId
+                productType
             }
             }
         }
@@ -49,8 +51,10 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `${edge.node.handle}`,
         component: ProductPageTemplate,
         context: {
-            handle:edge.node.handle
+            handle:edge.node.handle,
+            shopifyId: edge.node.shopifyId,
+            productType: edge.node.productType
         },
-      })
-    })
+      });
+    });
 }

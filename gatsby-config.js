@@ -41,7 +41,7 @@ module.exports = {
       options: {
         fonts: [
           `Montserrat\:400,700`,
-          "Poppins\:400,700"
+          "Poppins\:400,500,700"
         ],
         display: 'swap'
       }
