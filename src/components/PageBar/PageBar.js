@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Bars from './Bars';
 import Logo from './Logo';
+import ShoppingCart from './ShoppingCart';
 
 const StyledPageBar = styled.div`
   background:white;
@@ -17,13 +18,23 @@ const StyledPageBar = styled.div`
     align-items:center;
   }
 `;
+const Flex = styled.div`
+  display:flex;
+  align-items:center;
+  column-gap:15px;
+`;
 
 const PageBar = () => {
     return ( 
         <StyledPageBar>
           <nav>
             <Logo />
-            <Bars />
+
+            <Flex>
+              <ShoppingCart/>
+              <Bars />
+            </Flex>
+            
           </nav>
         </StyledPageBar>
      );

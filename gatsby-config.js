@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Shopify shop`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `First project in gatsby`,
+    author: `Tomasz Kardel`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -45,6 +45,12 @@ module.exports = {
         ],
         display: 'swap'
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["GATSBY_SHOP_NAME", "GATSBY_ACCESS_TOKEN"]
+      },
+    },
   ],
 }

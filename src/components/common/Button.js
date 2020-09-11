@@ -10,6 +10,12 @@ const Button = styled.button`
     font-weight:bold;
     line-height:41px;
     text-transform:uppercase;
+
+    :disabled{
+        background:#777;
+        cursor:initial;
+        border:none;
+    }
 `;
 
 export default Button;

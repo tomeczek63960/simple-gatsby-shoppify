@@ -54,6 +54,7 @@ const FeaturedProducts = () => {
 
                 return(
                   <Product
+                    key = { handle }
                     handle = { handle }
                     title = { title }
                     image = { images[0].localFile.childImageSharp.fluid }

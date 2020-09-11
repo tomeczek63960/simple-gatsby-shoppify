@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
@@ -9,6 +9,7 @@ import Product from '../components/common/products/Product';
 import Heading from '../components/common/Heading';
 import Paragraph from '../components/common/Paragraph';
 import Button from '../components/common/Button';
+import CartContext from '../context/CartContext';
 
 const  ProductPage = styled.section`
     margin:30px -30px;
@@ -63,6 +64,7 @@ const StyledPriceDiscount = styled.span`
 `;
 
 const Input = styled.input`
+    padding:0 5px;
     height:43px;
     width:43px;
     display:block;
@@ -107,11 +109,31 @@ const ProductFlexWrapper = styled.div`
   }
 `;
 
-const ProductPageTemplate = ( { data } ) => {
+const ProductPageTemplate = ( { data, pageContext } ) => {
     const { handle, title, variants, description, productType } = data.shopifyProduct;
     const { products } = data.shopifyCollection; 
     const priceNode = variants[0].presentmentPrices.edges[0].node;
 
+    const [ amount, setAmount ] = useState(1);
+    const { updateLineItem, removeLineItem } = React.useContext(CartContext);
+
+
+
+    const handleAmountChange = (e) =>{
+      const value = e.target.value;
+
+      if(value > 25) return setAmount(25);
+      return setAmount(value);
+    }
+    const handleAmountChangeBlur = (e) =>{
+      if(e.target.value < 1) return setAmount(1)
+    }
+
+    const handleSubmitForm = e =>{
+      e.preventDefault();
+      updateLineItem({ variantId:variants[0].shopifyId, quantity: parseInt(amount)});
+    }
+    
     return ( 
         <Layout>    
             <ProductPage>
@@ -141,8 +163,8 @@ const ProductPageTemplate = ( { data } ) => {
 
                     <Paragraph> { description } </Paragraph>
 
-                    <Form onSubmit = { e => e.preventDefault() }>
-                        <Input type="number" min='1' value="1" />
+                    <Form onSubmit = { handleSubmitForm }>
+                        <Input type="number" min='1' value={ amount } onChange={ handleAmountChange } onBlur={ handleAmountChangeBlur} />
                         <Button>Dodaj do koszyka</Button>
                     </Form>
 
@@ -160,6 +182,7 @@ const ProductPageTemplate = ( { data } ) => {
                     
                     return(
                     <Product 
+                        key = { product.handle }
                         title = { product.title }
                         handle = { product.handle }
                         price = { priceNode.compareAtPrice ? priceNode.compareAtPrice.amount : priceNode.price.amount }
@@ -183,6 +206,7 @@ export const query = graphql`
       description
       productType
       variants {
+        shopifyId
         presentmentPrices {
           edges {
             node {

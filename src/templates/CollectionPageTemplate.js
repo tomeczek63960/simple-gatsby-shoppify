@@ -42,7 +42,7 @@ const ShopContent = styled.section`
 
 const CollectionPageTemplate = (props) => {
     const { data, pageContext } = props;
-   
+
     return  ( 
         <Layout>
             <ShopContainer>
@@ -57,6 +57,7 @@ const CollectionPageTemplate = (props) => {
     
                             return(
                                 <Product 
+                                    key = { product.handle }
                                     handle = { product.handle }                              
                                     title = { product.title }
                                     image = { product.images[0].localFile.childImageSharp.fluid }
