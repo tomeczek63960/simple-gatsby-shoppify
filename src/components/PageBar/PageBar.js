@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Bars from './Bars';
 import Logo from './Logo';
+import Navbar from './Navbar';
 import ShoppingCart from './ShoppingCart';
 
 const StyledPageBar = styled.div`
   background:white;
-
+  position:relative;
   >nav{
     margin-left:auto;
     margin-right:auto;
@@ -25,6 +26,9 @@ const Flex = styled.div`
 `;
 
 const PageBar = () => {
+
+  const navbarRef = React.useRef();
+
     return ( 
         <StyledPageBar>
           <nav>
@@ -32,7 +36,8 @@ const PageBar = () => {
 
             <Flex>
               <ShoppingCart/>
-              <Bars />
+              <Bars  navbarRef={ navbarRef }/>
+              <Navbar ref={ navbarRef } />
             </Flex>
             
           </nav>

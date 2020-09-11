@@ -27,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
     input[type=checkbox]{
         display:none;
     }
+    ul{
+        list-style:none;
+    }
 `;
 
 export default GlobalStyle;

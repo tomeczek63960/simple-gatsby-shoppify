@@ -22,6 +22,10 @@ const CartWrapper = styled(Link)`
     position:relative;
     display:block;
     color:black;
+
+    @media screen and (min-width:800px){
+        order:1;
+    }
 `;
 
 const ShoppingCart = () => {
