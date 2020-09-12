@@ -1,45 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
+import { ShopContainer, ShopContent } from '../components/ShopContainer/ShopContainer';
 import Layout from '../components/layout';
 import Product from '../components/common/products/Product';
 import ProductsContainer from '../components/common/products/ProductsContainer';
 import Heading from '../components/common/Heading';
 import Aside from '../components/common/aside/Aside';
-
-const ShopContainer = styled.article`
-    margin-top:30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    flex-wrap:wrap;
-
-    @media screen and (min-width:600px){
-        margin-top:50px;
-    }
-    @media screen and (min-width:900px){
-        flex-wrap:nowrap;
-    }
-`;
-
-const ShopContent = styled.section`
-    padding:0 20px 30px;
-    margin:0 -30px;
-    width:calc(100% + 60px);
-    background:white;
-    order:-1;
-
-    @media screen and (min-width:600px){
-        margin:0;
-        width:100%;
-    }
-    @media screen and (min-width:900px){
-        margin:0;
-        width:70%;
-        order:0;
-    }
-`;
 
 const SearchPage = ({ data, location, navigate }) => {
     const { values, type } = location.state;

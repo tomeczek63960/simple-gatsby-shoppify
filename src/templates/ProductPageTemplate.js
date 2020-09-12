@@ -11,7 +11,7 @@ import Paragraph from '../components/common/Paragraph';
 import Button from '../components/common/Button';
 import CartContext from '../context/CartContext';
 
-const  ProductPage = styled.section`
+const  ProductPage = styled.div`
     margin:30px -30px;
     padding:30px;
     width:calc(100% + 60px);
@@ -104,7 +104,7 @@ const LinkWrapper = styled.p`
     margin-top:0;
   }
 `;
-const ProductFlexWrapper = styled.div`  
+const ProductFlexWrapper = styled.section`  
   @media screen and (min-width:800px){
     display:flex;
     justify-content:space-between;
@@ -121,13 +121,14 @@ const VariantSelect = styled.select`
   outline:none;
 `;
 
-const ProductPageTemplate = ( { data, pageContext } ) => {
+const ProductPageTemplate = ( { data } ) => {
     const { handle, title, variants, description, productType } = data.shopifyProduct;
     const { products } = data.shopifyCollection; 
     const priceNode = variants[0].presentmentPrices.edges[0].node;
+
     const [ activeVariant, setActiveVariant ] = useState(variants[0].shopifyId);
     const [ amount, setAmount ] = useState(1);
-    const { updateLineItem, removeLineItem } = React.useContext(CartContext);
+    const { updateLineItem } = React.useContext(CartContext);
 
     const handleAmountChange = (e) =>{
       const value = e.target.value;
