@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import Product from '../components/common/products/Product';
 import ProductsContainer from '../components/common/products/ProductsContainer';
 import Heading from '../components/common/Heading';
 import Aside from '../components/common/aside/Aside';
-import { graphql } from 'gatsby';
 
 const ShopContainer = styled.article`
     margin-top:30px;
@@ -27,7 +27,6 @@ const ShopContent = styled.section`
     padding:0 20px 30px;
     margin:0 -30px;
     width:calc(100% + 60px);
-    min-height:600px;
     background:white;
     order:-1;
 

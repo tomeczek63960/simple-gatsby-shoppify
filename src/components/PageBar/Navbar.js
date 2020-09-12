@@ -82,7 +82,6 @@ const Navbar = React.forwardRef((props, ref) => {
                     );
                 })
             }
-            <NavbarItem> <Link to="/cart">Koszyk</Link> </NavbarItem>
         </StyledNavbar>
      );
 });

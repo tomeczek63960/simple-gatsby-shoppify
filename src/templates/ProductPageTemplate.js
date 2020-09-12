@@ -76,6 +76,8 @@ const Form = styled.form`
     margin-top:30px;
     padding-bottom:25px;
     display:flex;
+    flex-wrap:wrap;
+    row-gap:15px;
     column-gap:5px;
     border-bottom:1px solid #ddd;
 `;
@@ -108,16 +110,24 @@ const ProductFlexWrapper = styled.div`
     justify-content:space-between;
   }
 `;
+const VariantSelect = styled.select`
+  width:100%;
+  max-width:100px;
+  border:1px solid rgba(0,0,0,.2);
+  color:#777;
+  font-family:Poppins;
+  font-size:16px;
+  letter-spacing:1px;
+  outline:none;
+`;
 
 const ProductPageTemplate = ( { data, pageContext } ) => {
     const { handle, title, variants, description, productType } = data.shopifyProduct;
     const { products } = data.shopifyCollection; 
     const priceNode = variants[0].presentmentPrices.edges[0].node;
-
+    const [ activeVariant, setActiveVariant ] = useState(variants[0].shopifyId);
     const [ amount, setAmount ] = useState(1);
     const { updateLineItem, removeLineItem } = React.useContext(CartContext);
-
-
 
     const handleAmountChange = (e) =>{
       const value = e.target.value;
@@ -131,7 +141,7 @@ const ProductPageTemplate = ( { data, pageContext } ) => {
 
     const handleSubmitForm = e =>{
       e.preventDefault();
-      updateLineItem({ variantId:variants[0].shopifyId, quantity: parseInt(amount)});
+      updateLineItem({ variantId:activeVariant, quantity: parseInt(amount)});
     }
     
     return ( 
@@ -164,6 +174,12 @@ const ProductPageTemplate = ( { data, pageContext } ) => {
                     <Paragraph> { description } </Paragraph>
 
                     <Form onSubmit = { handleSubmitForm }>
+                      {
+                        variants[1] && 
+                        <VariantSelect name = 'variant' onChange={ e => setActiveVariant( e.target.value ) }>
+                            {variants.map(variant => <option value={variant.shopifyId} key={variant.shopifyId}>{variant.title}</option>)}
+                        </VariantSelect>
+                      }
                         <Input type="number" min='1' value={ amount } onChange={ handleAmountChange } onBlur={ handleAmountChangeBlur} />
                         <Button>Dodaj do koszyka</Button>
                     </Form>
@@ -207,6 +223,7 @@ export const query = graphql`
       productType
       variants {
         shopifyId
+        title
         presentmentPrices {
           edges {
             node {

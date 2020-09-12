@@ -12,10 +12,14 @@ const CartProductItem = styled.div`
     border-bottom:1px solid rgba(0,0,0,.1);
     line-height:1.1;
 
-    @media screen and (min-width:750px){
+    @media screen and (min-width:900px){
         border:none;
         max-width: ${props => props.grow ? 'auto' : "100px"};
-        text-align:center;
+        p{
+            width:100%;
+            height:100%;
+            text-align:center;
+        }
     }
 `;
 const RemoveItem = styled.div`
@@ -29,7 +33,7 @@ const RemoveItem = styled.div`
     line-height:23px;
     cursor:pointer;
 
-    @media screen and (min-width:750px){
+    @media screen and (min-width:900px){
         margin-right:auto;
     }
 `;
@@ -38,7 +42,7 @@ const ProductRow = styled.div`
         border:none;
     }
     
-    @media screen and (min-width:750px){
+    @media screen and (min-width:900px){
         display:flex;
         justify-content:space-between;
         align-items:center;
@@ -74,6 +78,10 @@ const CartProduct = ({ product }) => {
             <CartProductItem grow>
                 <p className="sm-display-none">Produkt:</p>
                 <p>{product.title}</p>
+            </CartProductItem>
+            <CartProductItem>
+                <p className="sm-display-none" >Wariant:</p>
+                <p >{ product.variant.title === 'Default Title' ? '-' :product.variant.title}</p>
             </CartProductItem>
             <CartProductItem>
                 <p className="sm-display-none" >Cena:</p>

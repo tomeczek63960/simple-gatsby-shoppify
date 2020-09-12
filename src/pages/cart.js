@@ -36,14 +36,13 @@ const ProductDetails = styled.div`
     display:none;
     background:#fbfbfb;
     border-bottom:1px solid rgba(0,0,0,.1);
-
     justify-content:space-between;
     align-items:center;
     padding:15px;
 
     p{
         width:100%;
-        max-width:100px;
+        max-width:95px;
         text-align:center;
 
         :nth-child(1){
@@ -51,7 +50,7 @@ const ProductDetails = styled.div`
             margin-right:auto;
         }
     }
-    @media screen and (min-width:750px){
+    @media screen and (min-width:900px){
         display:flex;
     }
 `;
@@ -77,6 +76,7 @@ const Cart = () => {
                     <StyledCartProduct >
                         <ProductDetails>
                             <p>Produkt</p>
+                            <p>Wariant</p>
                             <p>Cena</p>
                             <p>Ilość</p>
                             <p>Subtotal</p>

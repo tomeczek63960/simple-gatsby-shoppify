@@ -25,7 +25,6 @@ const ShopContent = styled.section`
     padding:0 20px 30px;
     margin:0 -30px;
     width:calc(100% + 60px);
-    min-height:600px;
     background:white;
     order:-1;
 
