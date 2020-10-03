@@ -58,9 +58,10 @@ const ProductDetails = styled.div`
 const Cart = () => {
     let totalAmout = 0;
     const { checkout } = React.useContext(CartContext);
-    const products = checkout.lineItems;
-
+    let products = [];
+    
     if(checkout){
+        products = checkout?.lineItems;
         checkout.lineItems.forEach(item =>{
             totalAmout = totalAmout + item.quantity;
         });
@@ -88,7 +89,7 @@ const Cart = () => {
                         }
                     </StyledCartProduct>
 
-                    <CartSummary totalPrice = { checkout.totalPrice } checkout = { checkout } />
+                    <CartSummary totalPrice = { checkout?.totalPrice || 0 } checkout = { checkout } />
 
                 </CartPage>
             </Layout>

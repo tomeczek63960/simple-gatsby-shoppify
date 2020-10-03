@@ -9,7 +9,8 @@ import Heading from '../components/common/Heading';
 import Aside from '../components/common/aside/Aside';
 
 const SearchPage = ({ data, location, navigate }) => {
-    const { values, type } = location.state;
+    const values = location?.state?.values;
+    const type = location?.state?.type;
     let productsToMap = [];
 
     if(type === 'categories'){
@@ -31,7 +32,7 @@ const SearchPage = ({ data, location, navigate }) => {
     }else{
         productsToMap = data.allShopifyProduct.edges.filter(edge => {
 
-            const isSearched = edge.node.title.toLowerCase().includes(values.toLowerCase());
+            const isSearched = edge.node.title.toLowerCase().includes(values?.toLowerCase());
             if(!isSearched) return;
     
             return edge;

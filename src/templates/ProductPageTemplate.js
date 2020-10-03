@@ -123,7 +123,10 @@ const VariantSelect = styled.select`
 
 const ProductPageTemplate = ( { data } ) => {
     const { handle, title, variants, description, productType } = data.shopifyProduct;
-    const { products } = data.shopifyCollection; 
+    let products = [];
+    if(data.shopifyCollection){
+      products = data.shopifyCollection.products;
+    }
     const priceNode = variants[0].presentmentPrices.edges[0].node;
 
     const [ activeVariant, setActiveVariant ] = useState(variants[0].shopifyId);

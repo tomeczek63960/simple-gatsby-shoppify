@@ -53,4 +53,5 @@ module.exports = {
       },
     },
   ],
+    pathPrefix: "/simple-gatsby-store",
 }

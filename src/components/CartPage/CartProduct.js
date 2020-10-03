@@ -62,7 +62,6 @@ const ProductRow = styled.div`
 
 const CartProduct = ({ product }) => {
     const { removeLineItem } = React.useContext(CartContext);
-
     const handleRemoveCartProduct = () =>{
         removeLineItem(product.id);
     }
@@ -85,7 +84,12 @@ const CartProduct = ({ product }) => {
             </CartProductItem>
             <CartProductItem>
                 <p className="sm-display-none" >Cena:</p>
-                <p>{product.variant.price}zł</p>
+                {
+                    product.variant.compareAtPrice ?
+                        <p>{product.variant.compareAtPrice}zł</p>
+                        :
+                        <p>{product.variant.price}zł</p>
+                }
             </CartProductItem>
             <CartProductItem>
                 <p className="sm-display-none" >Ilość:</p>
@@ -93,7 +97,12 @@ const CartProduct = ({ product }) => {
             </CartProductItem>
             <CartProductItem>
                 <p className="sm-display-none" >Subtotal:</p>
-                <p>{(product.variant.price * product.quantity).toFixed(2)}zł</p>
+                {
+                    product.variant.compareAtPrice ?
+                        <p>{(product.variant.compareAtPrice * product.quantity).toFixed(2)}zł</p>
+                        :
+                        <p>{(product.variant.price * product.quantity).toFixed(2)}zł</p>
+                }
             </CartProductItem>
          </ProductRow>
      );
