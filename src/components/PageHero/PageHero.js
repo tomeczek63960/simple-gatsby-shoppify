@@ -27,7 +27,7 @@ const CollectionsWrapper = styled.article`
   }
 `;
 const Collection = styled.section`
-  min-width:${props => props.master ? "100%!important" : "100%"};
+  min-width:100%;
   order:${ props => props.master ? -1 : 0};
   height:300px;
   flex-grow:1;
@@ -35,9 +35,6 @@ const Collection = styled.section`
 
   @media screen and (min-width:600px){
     min-width:50%;
-  }
-  @media screen and (min-width:900px){
-    min-width:33%;
   }
 
 `;
@@ -100,7 +97,7 @@ const PageHero = () => {
                     const {title, image, id, handle} = v.node;
                     if(title === 'polecane') return;
                     return(
-                        <Collection key={id} master={ title === "wyprzedaż"} >
+                        <Collection key={id}  >
                         
                         <CollectionContent to={handle}>
                             <h3>{title}</h3>

@@ -31,8 +31,8 @@ module.exports = {
     {
       resolve: `gatsby-source-shopify`,
       options: {
-        shopName: `RealStyleClothes`,
-        accessToken: `d12b6112e7f38b7556a1e5eba6a78ec5`,
+        shopName: `RealyStyleClothes`,
+        accessToken: `294986b853c34875a74e0c1375eeca28`,
         apiVersion: '2020-07',
       },
     },

@@ -3,9 +3,9 @@ import Client from 'shopify-buy';
 
 const client = Client.buildClient({
   // domain: `${process.env.GATSBY_SHOP_NAME}.myshopify.com`,
-  domain: `RealStyleClothes.myshopify.com`,
+  domain: `RealyStyleClothes.myshopify.com`,
   // storefrontAccessToken: process.env.GATSBY_ACCESS_TOKEN,
-  storefrontAccessToken: 'd12b6112e7f38b7556a1e5eba6a78ec5',
+  storefrontAccessToken: '294986b853c34875a74e0c1375eeca28',
 });
 
 const defaultState = {

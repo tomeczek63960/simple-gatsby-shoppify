@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Layout from '../components/layout';
 import Product from '../components/common/products/Product';
 import ProductsContainer from '../components/common/products/ProductsContainer';

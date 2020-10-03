@@ -47,6 +47,7 @@ const SearchInputWrapper = styled.div`
         background-repeat:no-repeat;
         background-position:center;
         text-indent:-99999px;
+        cursor: pointer;
     }
 `;
 
@@ -99,6 +100,7 @@ const Btn = styled.button`
     font-family:Poppins;
     font-weight:bold;
     font-size:15px;
+    cursor: pointer;
 `;
 
 const Aside = (props) => {
